@@ -1,0 +1,273 @@
+/* ================================
+   TOPBAR
+================================ */
+
+.topbar {
+  height: 72px;
+
+  width: 100%;
+
+  background: #ffffff;
+
+  border-bottom: 1px solid #e5ebe8;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 28px;
+
+  position: sticky;
+  top: 0;
+
+  z-index: 100;
+}
+
+
+/* ================================
+   LEFT SECTION
+================================ */
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+
+  gap: 22px;
+}
+
+
+/* ================================
+   MENU BUTTON
+================================ */
+
+.menu-btn {
+  width: 40px;
+  height: 40px;
+
+  border: none;
+
+  background: transparent;
+
+  border-radius: 8px;
+
+  font-size: 22px;
+
+  color: #17382c;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.menu-btn:hover {
+  background: #edf6f1;
+}
+
+
+/* ================================
+   SEARCH BOX
+================================ */
+
+.search-box {
+  width: 430px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 0 12px;
+
+  border: 1px solid #dce6e1;
+
+  border-radius: 9px;
+
+  background: #ffffff;
+
+  transition: 0.25s;
+}
+
+
+/* Search focus */
+
+.search-box:focus-within {
+  border-color: #2f8f68;
+
+  box-shadow: 0 0 0 3px rgba(47, 143, 104, 0.1);
+}
+
+
+/* Search icon */
+
+.search-icon {
+  font-size: 22px;
+
+  color: #7c9188;
+}
+
+
+/* Search input */
+
+.search-box input {
+  flex: 1;
+
+  border: none;
+
+  outline: none;
+
+  font-size: 14px;
+
+  color: #17382c;
+
+  background: transparent;
+}
+
+.search-box input::placeholder {
+  color: #94a59e;
+}
+
+
+/* ================================
+   SEARCH SHORTCUT
+================================ */
+
+.search-shortcut {
+  padding: 4px 7px;
+
+  border: 1px solid #dce6e1;
+
+  border-radius: 5px;
+
+  font-size: 11px;
+
+  color: #7c9188;
+
+  background: #f8faf9;
+}
+
+
+/* ================================
+   RIGHT SECTION
+================================ */
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+
+  gap: 24px;
+}
+
+
+/* ================================
+   NOTIFICATION
+================================ */
+
+.notification-btn {
+  width: 40px;
+  height: 40px;
+
+  position: relative;
+
+  border: none;
+
+  background: transparent;
+
+  border-radius: 50%;
+
+  font-size: 22px;
+
+  color: #17382c;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.notification-btn:hover {
+  background: #edf6f1;
+}
+
+
+/* Notification dot */
+
+.notification-dot {
+  width: 8px;
+  height: 8px;
+
+  position: absolute;
+
+  top: 7px;
+  right: 7px;
+
+  background: #ef4444;
+
+  border: 2px solid #ffffff;
+
+  border-radius: 50%;
+}
+
+
+/* ================================
+   PROFILE
+================================ */
+
+.profile {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  cursor: pointer;
+}
+
+
+/* Avatar */
+
+.profile-avatar {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #d9f0e5;
+
+  color: #236b4f;
+
+  font-size: 15px;
+  font-weight: 700;
+}
+
+
+/* Profile text */
+
+.profile-info h4 {
+  font-size: 13px;
+
+  font-weight: 600;
+
+  color: #17382c;
+}
+
+.profile-info p {
+  margin-top: 2px;
+
+  font-size: 11px;
+
+  color: #2f8f68;
+}
+
+
+/* Arrow */
+
+.profile-arrow {
+  margin-left: 3px;
+
+  color: #71847c;
+
+  font-size: 16px;
+}

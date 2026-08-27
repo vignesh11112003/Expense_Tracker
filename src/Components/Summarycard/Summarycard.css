@@ -1,0 +1,178 @@
+/* =================================
+   SUMMARY CARDS
+================================= */
+
+.summary-cards {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 18px;
+
+  padding: 0 28px 28px;
+}
+
+
+/* =================================
+   CARD
+================================= */
+
+.summary-card {
+  background: #ffffff;
+
+  border: 1px solid #e5ebe8;
+
+  border-radius: 14px;
+
+  padding: 20px;
+
+  transition: all 0.25s ease;
+}
+
+
+/* Hover */
+
+.summary-card:hover {
+  transform: translateY(-3px);
+
+  border-color: #c9ddd4;
+
+  box-shadow: 0 10px 25px rgba(15, 47, 36, 0.07);
+}
+
+
+/* =================================
+   CARD TOP
+================================= */
+
+.card-top {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+}
+
+
+/* =================================
+   LABEL
+================================= */
+
+.card-label {
+  margin-bottom: 8px;
+
+  font-size: 13px;
+
+  font-weight: 500;
+
+  color: #71847c;
+}
+
+
+/* =================================
+   VALUE
+================================= */
+
+.summary-card h2 {
+  font-size: 25px;
+
+  font-weight: 700;
+
+  letter-spacing: -0.5px;
+
+  color: #17382c;
+}
+
+
+/* =================================
+   ICON
+================================= */
+
+.card-icon {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  font-size: 18px;
+
+  font-weight: 700;
+}
+
+
+/* Green */
+
+.green-icon {
+  background: #e4f5ed;
+
+  color: #2f8f68;
+}
+
+
+/* Blue */
+
+.blue-icon {
+  background: #e7f1f7;
+
+  color: #34789c;
+}
+
+
+/* Orange */
+
+.orange-icon {
+  background: #fff1df;
+
+  color: #d88925;
+}
+
+
+/* Purple */
+
+.purple-icon {
+  background: #eee9f8;
+
+  color: #7654a8;
+}
+
+
+/* =================================
+   CARD FOOTER
+================================= */
+
+.card-footer {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  margin-top: 14px;
+
+  font-size: 12px;
+
+  color: #8a9b94;
+}
+
+
+/* Positive */
+
+.positive {
+  color: #2f8f68;
+
+  font-weight: 600;
+}
+
+
+/* Remaining */
+
+.remaining {
+  color: #d88925;
+
+  font-weight: 600;
+}

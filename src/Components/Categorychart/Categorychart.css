@@ -1,0 +1,226 @@
+/* =================================
+   CATEGORY CHART CARD
+================================= */
+
+.category-chart-card {
+  background: #ffffff;
+
+  border: 1px solid #e5ebe8;
+
+  border-radius: 14px;
+
+  padding: 22px;
+
+  min-height: 380px;
+
+  transition: all 0.25s ease;
+}
+
+
+.category-chart-card:hover {
+  border-color: #c9ddd4;
+
+  box-shadow: 0 10px 25px rgba(15, 47, 36, 0.06);
+}
+
+
+/* =================================
+   HEADER
+================================= */
+
+.category-chart-header {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  margin-bottom: 15px;
+}
+
+
+.category-chart-header h3 {
+  font-size: 16px;
+
+  font-weight: 650;
+
+  color: #17382c;
+}
+
+
+.category-chart-header p {
+  margin-top: 5px;
+
+  font-size: 12px;
+
+  color: #8a9b94;
+}
+
+
+/* =================================
+   FILTER
+================================= */
+
+.category-filter {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 7px 9px;
+
+  border: 1px solid #dce6e1;
+
+  border-radius: 7px;
+
+  background: #ffffff;
+
+  color: #52675e;
+
+  font-size: 11px;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+}
+
+
+.category-filter:hover {
+  background: #f1f7f4;
+}
+
+
+/* =================================
+   DONUT
+================================= */
+
+.donut-container {
+  width: 190px;
+  height: 190px;
+
+  position: relative;
+
+  margin: 5px auto 15px;
+}
+
+
+.donut-center {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  pointer-events: none;
+}
+
+
+.donut-center strong {
+  font-size: 17px;
+
+  font-weight: 700;
+
+  color: #17382c;
+
+  white-space: nowrap;
+}
+
+
+.donut-center span {
+  margin-top: 4px;
+
+  font-size: 10px;
+
+  color: #8a9b94;
+
+  white-space: nowrap;
+}
+
+
+/* =================================
+   CATEGORY LIST
+================================= */
+
+.category-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 9px;
+
+  margin-top: 5px;
+}
+
+
+.category-item {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  font-size: 12px;
+
+  color: #52675e;
+}
+
+
+.category-name {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+
+.category-item strong {
+  color: #17382c;
+
+  font-size: 12px;
+}
+
+
+/* =================================
+   CATEGORY DOTS
+================================= */
+
+.category-dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  display: inline-block;
+}
+
+
+.food {
+  background: #2f8f68;
+}
+
+.transport {
+  background: #4d91b8;
+}
+
+.shopping {
+  background: #e09a3e;
+}
+
+.bills {
+  background: #8a6bb8;
+}
+
+.entertainment {
+  background: #d76b6b;
+}

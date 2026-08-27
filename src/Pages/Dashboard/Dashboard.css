@@ -1,0 +1,137 @@
+.dashboard {
+  min-height: 100vh;
+  background: #f8fafc;
+}
+
+.dashboard-main {
+  margin-left: 250px;
+
+  min-height: 100vh;
+
+  padding: 30px;
+}
+
+.dashboard {
+  min-height: 100vh;
+
+  background: #f6f9f7;
+}
+
+.dashboard-main {
+  margin-left: 250px;
+
+  min-height: 100vh;
+}
+
+/* =================================
+   DASHBOARD HEADER
+================================= */
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 32px 28px 24px;
+}
+
+
+/* =================================
+   HEADER CONTENT
+================================= */
+
+.header-content h1 {
+  margin: 0;
+
+  font-size: 28px;
+  font-weight: 700;
+
+  letter-spacing: -0.7px;
+
+  color: #17382c;
+}
+
+.header-content h1 span {
+  font-size: 25px;
+}
+
+.header-content p {
+  margin-top: 8px;
+
+  font-size: 14px;
+
+  color: #71847c;
+}
+
+
+/* =================================
+   ADD EXPENSE BUTTON
+================================= */
+
+.add-expense-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  padding: 12px 18px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: #2f8f68;
+
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+
+  box-shadow: 0 6px 15px rgba(47, 143, 104, 0.2);
+}
+
+
+/* Plus icon */
+
+.add-expense-btn span {
+  font-size: 20px;
+
+  line-height: 1;
+}
+
+
+/* Hover */
+
+.add-expense-btn:hover {
+  background: #267856;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 18px rgba(47, 143, 104, 0.28);
+}
+
+
+/* Click */
+
+.add-expense-btn:active {
+  transform: translateY(0);
+}
+
+.charts-section {
+  display: grid;
+
+  grid-template-columns: 2fr 1fr;
+
+  gap: 18px;
+
+  padding: 0 28px 28px;
+}
+
+.daily-chart-section {
+  padding: 0 28px 28px;
+}

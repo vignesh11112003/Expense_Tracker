@@ -1,0 +1,184 @@
+/* ================================
+   SIDEBAR
+================================ */
+
+.sidebar {
+  width: 250px;
+  height: 100vh;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  background: #0f2f24;
+
+  padding: 28px 18px;
+
+  display: flex;
+  flex-direction: column;
+
+  color: #ffffff;
+
+  border-right: 1px solid #1d4939;
+}
+
+
+/* ================================
+   LOGO
+================================ */
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 0 8px;
+
+  margin-bottom: 45px;
+}
+
+
+/* Logo Icon */
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+
+  border-radius: 10px;
+
+  font-size: 20px;
+}
+
+
+/* Logo Text */
+
+.logo-content h2 {
+  font-size: 22px;
+  font-weight: 700;
+
+  letter-spacing: -0.5px;
+}
+
+.logo-content h2 span {
+  color: #4ade80;
+}
+
+.logo-content p {
+  margin-top: 3px;
+
+  font-size: 11px;
+
+  color: #9fb8ad;
+}
+
+
+/* ================================
+   NAVIGATION
+================================ */
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+
+/* ================================
+   NAVIGATION LINK
+================================ */
+
+.sidebar-link {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 13px 14px;
+
+  border-radius: 10px;
+
+  color: #c4d5ce;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  transition: all 0.25s ease;
+}
+
+
+/* ================================
+   ICON
+================================ */
+
+.sidebar-icon {
+  width: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 18px;
+}
+
+
+/* ================================
+   ACTIVE LINK
+================================ */
+
+.sidebar-link.active {
+  background: #2f8f68;
+
+  color: #ffffff;
+
+  box-shadow: 0 8px 20px rgba(47, 143, 104, 0.25);
+}
+
+
+/* ================================
+   HOVER
+================================ */
+
+.sidebar-link:hover {
+  background: #194536;
+
+  color: #ffffff;
+
+  transform: translateX(2px);
+}
+
+
+/* Keep active color on hover */
+
+.sidebar-link.active:hover {
+  background: #2f8f68;
+}
+
+
+/* ================================
+   BOTTOM SECTION
+================================ */
+
+.sidebar-bottom {
+  margin-top: auto;
+
+  padding-top: 20px;
+
+  border-top: 1px solid #285343;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
