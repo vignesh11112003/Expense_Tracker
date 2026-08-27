@@ -80,6 +80,15 @@
       "paymentMethod": "UPI",
       "description": "cloths",
       "id": "UiUo60_L4rU"
+    },
+    {
+      "title": "kii",
+      "amount": 58,
+      "category": "Transport",
+      "date": "2026-08-27",
+      "paymentMethod": "UPI",
+      "description": "testing",
+      "id": "cIgj6KL"
     }
   ],
   "users": [
@@ -100,6 +109,12 @@
       "email": "sarath@gmail.com",
       "password": "321",
       "id": "GDGAKKPvAMM"
+    },
+    {
+      "name": "kart",
+      "email": "kar@gmail.com1",
+      "password": "123",
+      "id": "r4yLaYB"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
