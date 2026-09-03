@@ -423,3 +423,31 @@
     }
 
 }
+
+
+/* ================= ACCOUNT LINK ================= */
+
+.account-link {
+    margin-top: 20px;
+    text-align: center;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.account-link button {
+    border: none;
+    background: transparent;
+    color: var(--primary-color);
+    font-family: var(--font-family);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 4px;
+    transition: all 0.3s ease;
+}
+
+.account-link button:hover {
+    color: #148f70;
+    text-decoration: underline;
+}

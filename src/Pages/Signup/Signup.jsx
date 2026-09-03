@@ -74,7 +74,7 @@ function Signup() {
         password: user.password,
       };
 
-      // Add new user
+      // Add user
       const updatedUsers = [
         ...existingUsers,
         newUser,
@@ -88,7 +88,7 @@ function Signup() {
 
       alert("Account created successfully!");
 
-      // Navigate to login
+      // Go to Login
       navigate("/login");
 
     } catch (error) {
@@ -137,7 +137,7 @@ function Signup() {
             onSubmit={handleSignup}
           >
 
-            {/* Name */}
+            {/* NAME */}
 
             <label htmlFor="name">
               Name
@@ -152,7 +152,7 @@ function Signup() {
               onChange={handleChange}
             />
 
-            {/* Email */}
+            {/* EMAIL */}
 
             <label htmlFor="email">
               Email
@@ -167,7 +167,7 @@ function Signup() {
               onChange={handleChange}
             />
 
-            {/* Password */}
+            {/* PASSWORD */}
 
             <label htmlFor="password">
               Password
@@ -182,7 +182,7 @@ function Signup() {
               onChange={handleChange}
             />
 
-            {/* Confirm Password */}
+            {/* CONFIRM PASSWORD */}
 
             <label htmlFor="confirmPassword">
               Confirm Password
@@ -197,7 +197,7 @@ function Signup() {
               onChange={handleChange}
             />
 
-            {/* Error */}
+            {/* ERROR */}
 
             {error && (
               <p
@@ -212,7 +212,7 @@ function Signup() {
               </p>
             )}
 
-            {/* Button */}
+            {/* CREATE ACCOUNT */}
 
             <div className="submit-button">
 
@@ -226,6 +226,20 @@ function Signup() {
               </button>
 
             </div>
+
+            {/* LOGIN NAVIGATION */}
+
+            <p className="account-link">
+              Already have an account?{" "}
+
+              <button
+                type="button"
+                onClick={() => navigate("/login")}
+              >
+                Login
+              </button>
+
+            </p>
 
           </form>
 

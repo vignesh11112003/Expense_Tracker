@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
+
 import signupImage from "../../assets/intro_pages/signup.png";
+
 function Login() {
   const navigate = useNavigate();
 
@@ -35,18 +37,16 @@ function Login() {
     try {
       setLoading(true);
 
-      // Get users from localStorage
       const users = JSON.parse(
         localStorage.getItem("users") || "[]"
       );
 
-      // Find matching user
       const user = users.find(
         (item) =>
           item.email.trim().toLowerCase() ===
-          loginData.email.trim().toLowerCase() &&
+            loginData.email.trim().toLowerCase() &&
           String(item.password) ===
-          String(loginData.password)
+            String(loginData.password)
       );
 
       if (!user) {
@@ -56,13 +56,11 @@ function Login() {
 
       console.log("Login successful:", user);
 
-      // Save logged-in user
       localStorage.setItem(
         "user",
         JSON.stringify(user)
       );
 
-      // Navigate to dashboard
       navigate("/dashboard");
 
     } catch (error) {
@@ -94,6 +92,7 @@ function Login() {
             src={signupImage}
             alt="Login illustration"
           />
+
         </div>
 
         {/* ================= RIGHT SIDE ================= */}
@@ -109,7 +108,7 @@ function Login() {
             onSubmit={handleLogin}
           >
 
-            {/* Email */}
+            {/* EMAIL */}
 
             <label htmlFor="email">
               Email
@@ -124,7 +123,7 @@ function Login() {
               onChange={handleChange}
             />
 
-            {/* Password */}
+            {/* PASSWORD */}
 
             <label htmlFor="password">
               Password
@@ -139,7 +138,7 @@ function Login() {
               onChange={handleChange}
             />
 
-            {/* Error */}
+            {/* ERROR */}
 
             {error && (
               <p
@@ -154,7 +153,7 @@ function Login() {
               </p>
             )}
 
-            {/* Button */}
+            {/* LOGIN BUTTON */}
 
             <div className="login-button">
 
@@ -168,6 +167,20 @@ function Login() {
               </button>
 
             </div>
+
+            {/* SIGNUP NAVIGATION */}
+
+            <p className="account-link">
+              Don't have an account?{" "}
+
+              <button
+                type="button"
+                onClick={() => navigate("/signup")}
+              >
+                Create Account
+              </button>
+
+            </p>
 
           </form>
 

@@ -247,128 +247,29 @@
 
 
 
+/* ================= ACCOUNT LINK ================= */
 
-
-/* 
-:root{
-      --font-family:"Poppins",sans-serif;
-      --primary-color:#19a681;
-      --bg-color:#ecf9f2;
-      --text-color:#111827;
-      --input-border:#19a681;
+.account-link {
+    margin-top: 20px;
+    text-align: center;
+    color: #6b7280;
+    font-size: 14px;
 }
 
-
-
-*{
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: var(--font-family);
-
-}
-.sign-up
-{
-      min-height: 100vh;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 30px;
-      background-color: #ffff;
+.account-link button {
+    border: none;
+    background: transparent;
+    color: var(--primary-color);
+    font-family: var(--font-family);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 4px;
+    transition: all 0.3s ease;
 }
 
-.sign-up-page
-{
-      width:min(1200px,100%);
-      min-height: 720px;
-      display: flex;
-      overflow: hidden;
-      border-radius: 20px;
-      background:var(--bg-color);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-      
+.account-link button:hover {
+    color: #148f70;
+    text-decoration: underline;
 }
-.sign-up-image
-{
-      background:var(--bg-color);
-      width: 50%;
-      min-height: 720px;
-      padding: 45px 35px 20px;
-      
-}
-.sign-up-image h2{
-      text-align: center;
-      font-size: 30px;
-      letter-spacing: 2px;
-      word-spacing: 5px;
-}
-span
-{
-      color: #19a681;
-      font-weight: 700;
-}
-
-.sign-up-image img{
-
-      height: 100%;
-      width: 100%;
-      object-fit: contain;
-
-}
-
-.sign-up-content
-{
-      width: 50%;
-      display: flex;
-      flex-direction: column;
-      background-color: #ecf9f2;
-      padding: 50px;
-}
-
-.sign-up-content-header h1{
-      font-size: 50px;
-      margin-bottom: 40px;
-      text-align: center;
-}
-
-.form
-{
-      margin-left: 50px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 20px;
-}
-
-.form input{
-      height: 50px;
-      width: 70%;
-      font-size: 18px;
-      padding: 8px;
-      outline: none;
-      border: 1px solid #19a681;
-}
-
-.form input:focus
-{
-      border:3px solid #19a681;
-      box-shadow: 0 8px 30px #19a68159;
-}
-
-.submit-button
-{
-      margin-top: 40px;
-      margin-left: 28%;
-      
-}
-
-.submit-button button{
-      padding: 20px 40px;
-      background-color: #19a681;
-      color: white;
-      font-size: 18px;
-      border: none;
-      cursor: pointer;
-} */
