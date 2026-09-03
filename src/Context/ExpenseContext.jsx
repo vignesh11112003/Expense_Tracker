@@ -7,31 +7,33 @@ import {
 
 const ExpenseContext = createContext();
 
-const API_URL = "http://localhost:6500/expenses";
-
 export function ExpenseProvider({ children }) {
   const [expenses, setExpenses] = useState([]);
   const [loading, setLoading] = useState(true);
 
   // --------------------------------
-  // GET EXPENSES
+  // LOAD EXPENSES FROM LOCAL STORAGE
   // --------------------------------
 
-  const fetchExpenses = async () => {
+  const fetchExpenses = () => {
     try {
       setLoading(true);
 
-      const response = await fetch(API_URL);
+      const savedExpenses =
+        localStorage.getItem("expenses");
 
-      if (!response.ok) {
-        throw new Error("Failed to fetch expenses");
+      if (savedExpenses) {
+        setExpenses(JSON.parse(savedExpenses));
+      } else {
+        setExpenses([]);
       }
-
-      const data = await response.json();
-
-      setExpenses(data);
     } catch (error) {
-      console.error("Error fetching expenses:", error);
+      console.error(
+        "Error loading expenses:",
+        error
+      );
+
+      setExpenses([]);
     } finally {
       setLoading(false);
     }
@@ -46,45 +48,55 @@ export function ExpenseProvider({ children }) {
   }, []);
 
   // --------------------------------
+  // SAVE EXPENSES TO LOCAL STORAGE
+  // --------------------------------
+
+  useEffect(() => {
+    if (!loading) {
+      localStorage.setItem(
+        "expenses",
+        JSON.stringify(expenses)
+      );
+    }
+  }, [expenses, loading]);
+
+  // --------------------------------
   // ADD EXPENSE
   // --------------------------------
 
   const addExpense = async (newExpense) => {
     try {
       const expense = {
+        id: Date.now(),
+
         title: newExpense.title,
+
         amount: Number(newExpense.amount),
+
         category: newExpense.category,
+
         date: newExpense.date,
-        paymentMethod: newExpense.paymentMethod,
+
+        paymentMethod:
+          newExpense.paymentMethod,
+
         description:
-          newExpense.description || "No description",
+          newExpense.description ||
+          "No description",
       };
 
-      const response = await fetch(API_URL, {
-        method: "POST",
-
-        headers: {
-          "Content-Type": "application/json",
-        },
-
-        body: JSON.stringify(expense),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to add expense");
-      }
-
-      const createdExpense = await response.json();
-
       setExpenses((previousExpenses) => [
-        createdExpense,
+        expense,
         ...previousExpenses,
       ]);
 
-      return createdExpense;
+      return expense;
     } catch (error) {
-      console.error("Error adding expense:", error);
+      console.error(
+        "Error adding expense:",
+        error
+      );
+
       throw error;
     }
   };
@@ -93,38 +105,36 @@ export function ExpenseProvider({ children }) {
   // UPDATE EXPENSE
   // --------------------------------
 
-  const updateExpense = async (id, updatedExpense) => {
+  const updateExpense = async (
+    id,
+    updatedExpense
+  ) => {
     try {
       const expense = {
         ...updatedExpense,
-        amount: Number(updatedExpense.amount),
+
+        id,
+
+        amount: Number(
+          updatedExpense.amount
+        ),
       };
-
-      const response = await fetch(`${API_URL}/${id}`, {
-        method: "PATCH",
-
-        headers: {
-          "Content-Type": "application/json",
-        },
-
-        body: JSON.stringify(expense),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to update expense");
-      }
-
-      const updatedData = await response.json();
 
       setExpenses((previousExpenses) =>
         previousExpenses.map((item) =>
-          item.id === id ? updatedData : item
+          item.id === id
+            ? expense
+            : item
         )
       );
 
-      return updatedData;
+      return expense;
     } catch (error) {
-      console.error("Error updating expense:", error);
+      console.error(
+        "Error updating expense:",
+        error
+      );
+
       throw error;
     }
   };
@@ -135,21 +145,18 @@ export function ExpenseProvider({ children }) {
 
   const deleteExpense = async (id) => {
     try {
-      const response = await fetch(`${API_URL}/${id}`, {
-        method: "DELETE",
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to delete expense");
-      }
-
       setExpenses((previousExpenses) =>
         previousExpenses.filter(
-          (expense) => expense.id !== id
+          (expense) =>
+            expense.id !== id
         )
       );
     } catch (error) {
-      console.error("Error deleting expense:", error);
+      console.error(
+        "Error deleting expense:",
+        error
+      );
+
       throw error;
     }
   };
@@ -172,7 +179,8 @@ export function ExpenseProvider({ children }) {
 }
 
 export function useExpenses() {
-  const context = useContext(ExpenseContext);
+  const context =
+    useContext(ExpenseContext);
 
   if (!context) {
     throw new Error(

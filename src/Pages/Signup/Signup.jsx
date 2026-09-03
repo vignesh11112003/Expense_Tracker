@@ -1,10 +1,8 @@
-import SignIllustration from "../../assets/intro_pages/signup.png";
-
 import { useState } from "react";
-
 import { useNavigate } from "react-router-dom";
-
 import "./Signup.css";
+
+import signupImage from "../../assets/intro_pages/signup.png";
 
 function Signup() {
   const navigate = useNavigate();
@@ -19,21 +17,23 @@ function Signup() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  function handleChange(e) {
+  const handleChange = (e) => {
     setUser({
       ...user,
       [e.target.name]: e.target.value,
     });
-  }
 
-  async function handleSignup(e) {
+    setError("");
+  };
+
+  const handleSignup = async (e) => {
     e.preventDefault();
 
     setError("");
 
     if (
-      !user.name ||
-      !user.email ||
+      !user.name.trim() ||
+      !user.email.trim() ||
       !user.password ||
       !user.confirmPassword
     ) {
@@ -49,85 +49,87 @@ function Signup() {
     try {
       setLoading(true);
 
-      // Check existing user
-
-      const existingResponse = await fetch(
-        `http://localhost:6500/users?email=${encodeURIComponent(
-          user.email
-        )}`
+      // Get existing users
+      const existingUsers = JSON.parse(
+        localStorage.getItem("users") || "[]"
       );
 
-      const existingUsers =
-        await existingResponse.json();
+      // Check existing email
+      const emailExists = existingUsers.some(
+        (item) =>
+          item.email.trim().toLowerCase() ===
+          user.email.trim().toLowerCase()
+      );
 
-      if (existingUsers.length > 0) {
+      if (emailExists) {
         setError("Email already exists.");
         return;
       }
 
-      // Create user
+      // Create new user
+      const newUser = {
+        id: Date.now(),
+        name: user.name.trim(),
+        email: user.email.trim().toLowerCase(),
+        password: user.password,
+      };
 
-      const response = await fetch(
-        "http://localhost:6500/users",
-        {
-          method: "POST",
+      // Add new user
+      const updatedUsers = [
+        ...existingUsers,
+        newUser,
+      ];
 
-          headers: {
-            "Content-Type": "application/json",
-          },
-
-          body: JSON.stringify({
-            name: user.name,
-            email: user.email,
-            password: user.password,
-          }),
-        }
+      // Save users
+      localStorage.setItem(
+        "users",
+        JSON.stringify(updatedUsers)
       );
-
-      if (!response.ok) {
-        throw new Error("Signup failed");
-      }
 
       alert("Account created successfully!");
 
+      // Navigate to login
       navigate("/login");
 
     } catch (error) {
-      console.error(error);
+      console.error("Signup error:", error);
 
       setError(
-        "Server error. Please start JSON Server."
+        "Unable to create account. Please try again."
       );
     } finally {
       setLoading(false);
     }
-  }
+  };
 
   return (
-    <div className="sign-up">
+    <section className="sign-up">
 
       <div className="sign-up-page">
+
+        {/* ================= LEFT SIDE ================= */}
 
         <div className="sign-up-image">
 
           <h2>
-            Start to manage your
-            <span>MONEY</span>
-            <br />
-            from <span>NOW</span>
+            Join{" "}
+            <span>Expense Tracker</span>{" "}
+            Today
           </h2>
 
           <img
-            src={SignIllustration}
-            alt="Expense management"
+            src={signupImage}
+            alt="Signup illustration"
           />
 
         </div>
 
+        {/* ================= RIGHT SIDE ================= */}
+
         <div className="sign-up-content">
 
           <div className="sign-up-content-header">
-            <h1>Create Account</h1>
+            <h1>Sign Up</h1>
           </div>
 
           <form
@@ -135,59 +137,82 @@ function Signup() {
             onSubmit={handleSignup}
           >
 
-            {error && (
-              <div className="form-error">
-                {error}
-              </div>
-            )}
+            {/* Name */}
 
-            <label>
+            <label htmlFor="name">
               Name
             </label>
 
             <input
               type="text"
+              id="name"
               name="name"
+              placeholder="Enter your name"
               value={user.name}
               onChange={handleChange}
-              placeholder="Enter the name"
             />
 
-            <label>
+            {/* Email */}
+
+            <label htmlFor="email">
               Email
             </label>
 
             <input
               type="email"
+              id="email"
               name="email"
+              placeholder="Enter your email"
               value={user.email}
               onChange={handleChange}
-              placeholder="name@gmail.com"
             />
 
-            <label>
+            {/* Password */}
+
+            <label htmlFor="password">
               Password
             </label>
 
             <input
               type="password"
+              id="password"
               name="password"
+              placeholder="Create a password"
               value={user.password}
               onChange={handleChange}
-              placeholder="Enter the password"
             />
 
-            <label>
+            {/* Confirm Password */}
+
+            <label htmlFor="confirmPassword">
               Confirm Password
             </label>
 
             <input
               type="password"
+              id="confirmPassword"
               name="confirmPassword"
+              placeholder="Confirm your password"
               value={user.confirmPassword}
               onChange={handleChange}
-              placeholder="Enter confirm password"
             />
+
+            {/* Error */}
+
+            {error && (
+              <p
+                style={{
+                  color: "#dc2626",
+                  fontSize: "14px",
+                  marginTop: "5px",
+                  textAlign: "center",
+                }}
+              >
+                {error}
+              </p>
+            )}
+
+            {/* Button */}
 
             <div className="submit-button">
 
@@ -196,7 +221,7 @@ function Signup() {
                 disabled={loading}
               >
                 {loading
-                  ? "Creating..."
+                  ? "Creating Account..."
                   : "Create Account"}
               </button>
 
@@ -208,7 +233,7 @@ function Signup() {
 
       </div>
 
-    </div>
+    </section>
   );
 }
 

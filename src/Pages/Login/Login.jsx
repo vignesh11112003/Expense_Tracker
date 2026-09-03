@@ -1,11 +1,8 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-
-import LoginIllustration from "../../assets/intro_pages/signup.png";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
-
+import signupImage from "../../assets/intro_pages/signup.png";
 function Login() {
-
   const navigate = useNavigate();
 
   const [loginData, setLoginData] = useState({
@@ -16,206 +13,148 @@ function Login() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-
-  // --------------------------------
-  // Handle Input
-  // --------------------------------
-
   const handleChange = (e) => {
-
-    setLoginData((previous) => ({
-      ...previous,
+    setLoginData({
+      ...loginData,
       [e.target.name]: e.target.value,
-    }));
+    });
 
     setError("");
   };
 
-
-  // --------------------------------
-  // Login
-  // --------------------------------
-
   const handleLogin = async (e) => {
-
     e.preventDefault();
 
     setError("");
 
-
-    // Validation
-
-    if (
-      !loginData.email.trim() ||
-      !loginData.password.trim()
-    ) {
-
+    if (!loginData.email.trim() || !loginData.password) {
       setError("Please enter email and password.");
-
       return;
     }
 
-
     try {
-
       setLoading(true);
 
-
-      // Get all users
-
-      const response = await fetch(
-        "http://localhost:6500/users"
+      // Get users from localStorage
+      const users = JSON.parse(
+        localStorage.getItem("users") || "[]"
       );
 
-
-      if (!response.ok) {
-
-        throw new Error(
-          "Unable to connect to JSON Server"
-        );
-
-      }
-
-
-      const users = await response.json();
-
-
-      console.log("Users from server:", users);
-
-
       // Find matching user
-
       const user = users.find(
         (item) =>
           item.email.trim().toLowerCase() ===
-            loginData.email.trim().toLowerCase() &&
+          loginData.email.trim().toLowerCase() &&
           String(item.password) ===
-            String(loginData.password)
+          String(loginData.password)
       );
 
-
-      // User not found
-
       if (!user) {
-
         setError("Invalid email or password.");
-
         return;
       }
 
-
-      // --------------------------------
-      // Login successful
-      // --------------------------------
-
       console.log("Login successful:", user);
 
-
+      // Save logged-in user
       localStorage.setItem(
         "user",
         JSON.stringify(user)
       );
 
-
-      // Go to dashboard
-
+      // Navigate to dashboard
       navigate("/dashboard");
 
-
     } catch (error) {
-
-      console.error(
-        "Login error:",
-        error
-      );
+      console.error("Login error:", error);
 
       setError(
-        "Unable to connect to server. Please make sure JSON Server is running."
+        "Unable to login. Please try again."
       );
-
     } finally {
-
       setLoading(false);
-
     }
-
   };
 
-
   return (
-
-    <div className="login">
+    <section className="login">
 
       <div className="login-page">
 
+        {/* ================= LEFT SIDE ================= */}
 
-        {/* ==============================
-            LOGIN CONTENT
-        ============================== */}
+        <div className="login-page-image">
+
+          <h2>
+            Welcome Back to{" "}
+            <span>Expense Tracker</span>
+          </h2>
+
+          <img
+            src={signupImage}
+            alt="Login illustration"
+          />
+        </div>
+
+        {/* ================= RIGHT SIDE ================= */}
 
         <div className="login-page-content">
 
           <div className="login-page-content-header">
-
-            <h1>
-              Welcome Back
-            </h1>
-
-            <p>
-              Login to manage your expenses
-            </p>
-
+            <h1>Login</h1>
           </div>
-
 
           <form
             className="form1"
             onSubmit={handleLogin}
           >
 
-
-            {/* Error */}
-
-            {error && (
-
-              <div className="login-error">
-                {error}
-              </div>
-
-            )}
-
-
             {/* Email */}
 
-            <label>
+            <label htmlFor="email">
               Email
             </label>
 
             <input
               type="email"
+              id="email"
               name="email"
+              placeholder="Enter your email"
               value={loginData.email}
               onChange={handleChange}
-              placeholder="name@gmail.com"
             />
-
 
             {/* Password */}
 
-            <label>
+            <label htmlFor="password">
               Password
             </label>
 
             <input
               type="password"
+              id="password"
               name="password"
+              placeholder="Enter your password"
               value={loginData.password}
               onChange={handleChange}
-              placeholder="Enter your password"
             />
 
+            {/* Error */}
 
-            {/* Login Button */}
+            {error && (
+              <p
+                style={{
+                  color: "#dc2626",
+                  fontSize: "14px",
+                  marginTop: "5px",
+                  textAlign: "center",
+                }}
+              >
+                {error}
+              </p>
+            )}
+
+            {/* Button */}
 
             <div className="login-button">
 
@@ -223,70 +162,21 @@ function Login() {
                 type="submit"
                 disabled={loading}
               >
-
                 {loading
                   ? "Logging in..."
                   : "Login"}
-
               </button>
 
             </div>
-
-
-            {/* Signup Link */}
-
-            <p className="login-signup">
-
-              Don't have an account?{" "}
-
-              <Link to="/signup">
-                Create Account
-              </Link>
-
-            </p>
-
 
           </form>
 
         </div>
 
-
-        {/* ==============================
-            IMAGE SECTION
-        ============================== */}
-
-        <div className="login-page-image">
-
-          <h2>
-
-            Start to manage your{" "}
-
-            <span>MONEY</span>
-
-            <br />
-
-            from{" "}
-
-            <span>NOW</span>
-
-          </h2>
-
-
-          <img
-            src={LoginIllustration}
-            alt="Expense management"
-          />
-
-        </div>
-
-
       </div>
 
-    </div>
-
+    </section>
   );
-
 }
-
 
 export default Login;

@@ -11,6 +11,9 @@ import Report from "./Pages/Report/Report";
 import Login from "./Pages/Login/Login";
 import Signup from "./Pages/Signup/Signup";
 
+
+// ================= PROTECTED ROUTE =================
+
 function ProtectedRoute({ children }) {
   const user = localStorage.getItem("user");
 
@@ -21,13 +24,16 @@ function ProtectedRoute({ children }) {
   return children;
 }
 
+
+// ================= APP =================
+
 function App() {
   return (
     <BrowserRouter>
 
       <Routes>
 
-        {/* Public */}
+        {/* ================= PUBLIC ================= */}
 
         <Route
           path="/login"
@@ -39,7 +45,8 @@ function App() {
           element={<Signup />}
         />
 
-        {/* Protected */}
+
+        {/* ================= PROTECTED ================= */}
 
         <Route
           path="/dashboard"
@@ -59,9 +66,17 @@ function App() {
           }
         />
 
-        
+        <Route
+          path="/report"
+          element={
+            <ProtectedRoute>
+              <Report />
+            </ProtectedRoute>
+          }
+        />
 
-        {/* Default */}
+
+        {/* ================= DEFAULT ================= */}
 
         <Route
           path="/"
@@ -73,7 +88,8 @@ function App() {
           }
         />
 
-        {/* 404 */}
+
+        {/* ================= 404 ================= */}
 
         <Route
           path="*"
