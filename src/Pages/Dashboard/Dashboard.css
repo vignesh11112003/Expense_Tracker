@@ -135,3 +135,113 @@
 .daily-chart-section {
   padding: 0 28px 28px;
 }
+
+
+/* ================================
+   RESPONSIVE DASHBOARD
+================================ */
+
+@media (max-width: 1200px) {
+  .dashboard-main {
+    margin-left: 72px;
+  }
+
+  .summary-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .charts-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .dashboard-main {
+    margin-left: 72px;
+  }
+
+  .dashboard-header {
+    padding: 26px 20px 20px;
+  }
+
+  .summary-cards,
+  .charts-section,
+  .daily-chart-section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-main {
+    margin-left: 0;
+    padding-bottom: 78px;
+  }
+
+  .dashboard-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+    padding: 22px 14px 18px;
+  }
+
+  .header-content h1 {
+    font-size: 23px;
+  }
+
+  .header-content h1 span {
+    font-size: 21px;
+  }
+
+  .header-content p {
+    font-size: 12px;
+  }
+
+  .add-expense-btn {
+    width: 100%;
+    padding: 11px 16px;
+  }
+
+  .summary-cards {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 0 14px 18px;
+  }
+
+  .summary-card {
+    padding: 16px;
+  }
+
+  .charts-section,
+  .daily-chart-section {
+    padding: 0 14px 18px;
+  }
+
+  .spending-chart-card,
+  .category-chart-card,
+  .daily-chart-card {
+    padding: 16px;
+    min-height: auto;
+  }
+
+  .spending-chart,
+  .daily-chart {
+    height: 230px;
+  }
+
+  .category-chart-header,
+  .spending-chart-header,
+  .daily-chart-header {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .header-content h1 {
+    font-size: 20px;
+  }
+
+  .summary-card h2 {
+    font-size: 22px;
+  }
+}

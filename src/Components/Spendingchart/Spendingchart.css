@@ -98,3 +98,35 @@
 
   height: 280px;
 }
+
+
+/* ================================
+   RESPONSIVE SPENDING CHART
+================================ */
+
+@media (max-width: 600px) {
+  .spending-chart-card {
+    padding: 16px;
+    min-height: 320px;
+  }
+
+  .spending-chart-header {
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+
+  .spending-chart {
+    height: 230px;
+  }
+}
+
+@media (max-width: 380px) {
+  .spending-chart-card {
+    padding: 13px;
+  }
+
+  .spending-filter {
+    padding: 6px 8px;
+    font-size: 10px;
+  }
+}

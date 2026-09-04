@@ -645,3 +645,133 @@ tbody tr:hover {
   margin: 0;
   color: #71847c;
 }
+
+
+/* ================================
+   RESPONSIVE EXPENSES PAGE
+================================ */
+
+@media (max-width: 1200px) {
+  .expenses-main {
+    margin-left: 72px;
+  }
+}
+
+@media (max-width: 900px) {
+  .expenses-header,
+  .expense-filters {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .expense-table-card {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .expense-filters {
+    flex-wrap: wrap;
+  }
+
+  .expense-search {
+    max-width: none;
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .expenses-main {
+    margin-left: 0;
+    padding-bottom: 78px;
+  }
+
+  .expenses-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+    padding: 22px 14px 18px;
+  }
+
+  .expenses-header h1 {
+    font-size: 23px;
+  }
+
+  .expenses-header p {
+    font-size: 12px;
+  }
+
+  .expenses-header .add-expense-btn {
+    width: 100%;
+  }
+
+  .expense-filters {
+    padding: 0 14px 18px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .expense-search {
+    width: 100%;
+    max-width: none;
+    flex: none;
+  }
+
+  .expense-filter {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .expense-table-card {
+    margin: 0 14px 20px;
+    border-radius: 11px;
+  }
+
+  .table-header {
+    padding: 16px;
+    gap: 10px;
+  }
+
+  .table-header p {
+    font-size: 11px;
+  }
+
+  .sort-btn {
+    flex-shrink: 0;
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table {
+    min-width: 720px;
+  }
+
+  th,
+  td {
+    padding: 11px 14px;
+  }
+
+  .table-footer {
+    padding: 13px 14px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 380px) {
+  .expenses-header h1 {
+    font-size: 21px;
+  }
+
+  .expense-table-card {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .expense-filters {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}

@@ -224,3 +224,36 @@
 .entertainment {
   background: #d76b6b;
 }
+
+
+/* ================================
+   RESPONSIVE CATEGORY CHART
+================================ */
+
+@media (max-width: 600px) {
+  .category-chart-card {
+    padding: 16px;
+    min-height: 330px;
+  }
+
+  .category-chart-header {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .donut-container {
+    width: 170px;
+    height: 170px;
+  }
+}
+
+@media (max-width: 380px) {
+  .category-chart-card {
+    padding: 13px;
+  }
+
+  .donut-container {
+    width: 155px;
+    height: 155px;
+  }
+}

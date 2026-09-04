@@ -451,3 +451,38 @@
     color: #148f70;
     text-decoration: underline;
 }
+
+
+/* ================================
+   EXTRA LOGIN RESPONSIVE FIXES
+================================ */
+
+@media (max-width: 768px) {
+  .login {
+    padding: 14px;
+  }
+
+  .login-page-image img {
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login {
+    padding: 8px;
+  }
+
+  .login-page-image {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .login-page-content {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .form1 {
+    max-width: none;
+  }
+}

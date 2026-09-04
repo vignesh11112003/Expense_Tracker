@@ -273,3 +273,37 @@
     color: #148f70;
     text-decoration: underline;
 }
+
+
+/* ================================
+   EXTRA SIGNUP RESPONSIVE FIXES
+================================ */
+
+@media (max-width: 768px) {
+  .sign-up {
+    padding: 14px;
+  }
+
+  .sign-up-page {
+    min-height: auto;
+  }
+
+  .sign-up-image img {
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sign-up {
+    padding: 8px;
+  }
+
+  .sign-up-content {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .form {
+    max-width: none;
+  }
+}

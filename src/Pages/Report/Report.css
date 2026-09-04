@@ -392,3 +392,107 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ================================
+   RESPONSIVE REPORTS
+================================ */
+
+@media (max-width: 1200px) {
+  .reports-main {
+    margin-left: 72px;
+  }
+}
+
+@media (max-width: 900px) {
+  .report-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .report-charts {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .reports-main {
+    margin-left: 0;
+    padding-bottom: 78px;
+  }
+
+  .reports-header {
+    padding: 22px 14px 18px;
+  }
+
+  .reports-header h1 {
+    font-size: 23px;
+  }
+
+  .reports-header p {
+    font-size: 12px;
+  }
+
+  .reports-month {
+    width: 100%;
+  }
+
+  .report-summary {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 0 14px 18px;
+  }
+
+  .report-card {
+    padding: 16px;
+  }
+
+  .report-charts {
+    padding: 0 14px 18px;
+  }
+
+  .report-chart-card,
+  .top-expenses-card {
+    padding: 16px;
+  }
+
+  .top-expenses-card {
+    margin: 0 14px 20px;
+  }
+
+  .report-chart-placeholder {
+    height: 220px;
+  }
+
+  .report-card-header {
+    gap: 10px;
+  }
+
+  .top-expense-item {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .reports-header h1 {
+    font-size: 21px;
+  }
+
+  .report-card strong {
+    font-size: 20px;
+  }
+
+  .top-expenses-card {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .report-charts {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .report-summary {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}

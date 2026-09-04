@@ -182,3 +182,87 @@
 
   gap: 8px;
 }
+
+
+/* ================================
+   RESPONSIVE SIDEBAR
+================================ */
+
+@media (max-width: 900px) {
+  .sidebar {
+    width: 72px;
+    padding: 22px 10px;
+  }
+
+  .sidebar-logo {
+    justify-content: center;
+    padding: 0;
+    margin-bottom: 30px;
+  }
+
+  .logo-content {
+    display: none;
+  }
+
+  .sidebar-link {
+    justify-content: center;
+    padding: 13px 8px;
+  }
+
+  .sidebar-link > span:not(.sidebar-icon) {
+    display: none;
+  }
+
+  .sidebar-icon {
+    width: auto;
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    width: 100%;
+    height: 64px;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 7px 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-right: none;
+    border-top: 1px solid #1d4939;
+  }
+
+  .sidebar-logo {
+    display: none;
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    gap: 5px;
+  }
+
+  .sidebar-bottom {
+    margin: 0;
+    padding: 0;
+    border: none;
+    flex-direction: row;
+    gap: 5px;
+  }
+
+  .sidebar-link {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .sidebar-icon {
+    font-size: 18px;
+  }
+}

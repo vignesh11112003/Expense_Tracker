@@ -98,3 +98,35 @@
 
   height: 270px;
 }
+
+
+/* ================================
+   RESPONSIVE DAILY CHART
+================================ */
+
+@media (max-width: 600px) {
+  .daily-chart-card {
+    padding: 16px;
+    min-height: 320px;
+  }
+
+  .daily-chart-header {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .daily-chart {
+    height: 230px;
+  }
+}
+
+@media (max-width: 380px) {
+  .daily-chart-card {
+    padding: 13px;
+  }
+
+  .daily-filter {
+    padding: 6px 8px;
+    font-size: 10px;
+  }
+}
